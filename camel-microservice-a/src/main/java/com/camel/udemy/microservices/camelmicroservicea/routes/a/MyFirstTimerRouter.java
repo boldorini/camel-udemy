@@ -1,5 +1,7 @@
 package com.camel.udemy.microservices.camelmicroservicea.routes.a;
 
+import java.time.LocalDateTime;
+
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +23,8 @@ public class MyFirstTimerRouter extends RouteBuilder{
 		//timer and log are keywords. 
 		from("timer:first-timer") //this is a channel
 			//Transforming the Body Message into something eles using the transform() method
-			.transform().constant("My Constant Message")
+			//.transform().constant("My Constant Message")
+		.transform().constant("Time now is: " +  LocalDateTime.now())
 		.to("log:first-timer");
 	}
 	
