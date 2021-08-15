@@ -16,7 +16,7 @@ public class MyFirstTimerRouter extends RouteBuilder{
 	public void configure() throws Exception {
 		
 		from("timer:first-timer") //this is a channel
-			.bean(currentTimeBean)
+			.bean(currentTimeBean,"getCurrentDateTimeFromJapan")
 		.to("log:first-timer");
 	}
 	
