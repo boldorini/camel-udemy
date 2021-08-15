@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import com.camel.udemy.microservices.camelmicroservicea.beans.CurrentTimeBean;
 import com.camel.udemy.microservices.camelmicroservicea.components.SimpleLoggingComponent;
+import com.camel.udemy.microservices.camelmicroservicea.components.SimpleLoggingProcessor;
 
 @Component
 public class MyFirstTimerRouter extends RouteBuilder{
@@ -26,6 +27,8 @@ public class MyFirstTimerRouter extends RouteBuilder{
 			.bean(currentTimeBean,"getCurrentDateTimeFromJapan")
 			.log("${body}")
 			.bean(simpleLoggingComponent)
+			.log("${body}")
+			.process(new SimpleLoggingProcessor())
 			.log("${body}")
 		.to("log:first-timer");
 	}

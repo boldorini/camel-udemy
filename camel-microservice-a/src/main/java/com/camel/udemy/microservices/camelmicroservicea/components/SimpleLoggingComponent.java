@@ -10,7 +10,7 @@ public class SimpleLoggingComponent {
 	private Logger log = LoggerFactory.getLogger(SimpleLoggingComponent.class);
 	
 	public void process(String message) {
-		log.info("Simple Logging Component {}", message);
+		log.info("Simple Logging Processor {}", message);
 	}
 
 }

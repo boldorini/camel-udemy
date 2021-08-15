@@ -12,8 +12,6 @@ public class SimpleLoggingProcessor implements Processor{
 	@Override
 	public void process(Exchange exchange) throws Exception {
 		//log.info("Simple Logging Component {}", exchange);
-		log.info("Simple Logging Component {}", exchange.getMessage().getBody());
-		
+		log.info("Simple Logging Component {}", exchange.getMessage().getBody());		
 	}
-
 }
