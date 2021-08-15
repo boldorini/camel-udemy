@@ -17,8 +17,12 @@ public class MyFirstTimerRouter extends RouteBuilder{
 		//timer
 		//transformation
 		//log
-		from("timer:first-timer")
-			.to("log:first-timer");
+		//2021-08-15 18:14:46.177  INFO 3320 --- [r://first-timer] first-timer: Exchange[ExchangePattern: InOnly, BodyType: null, Body: [Body is null]]
+		//timer and log are keywords. 
+		from("timer:first-timer") //this is a channel
+			//Transforming the Body Message into something eles using the transform() method
+			.transform().constant("My Constant Message")
+		.to("log:first-timer");
 	}
 	
 }
